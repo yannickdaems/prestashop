@@ -1,0 +1,97 @@
+<head>
+    <script src="js/auto_menu.js"></script>
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row">
+        <div class="menu col-xs-4 col-lg-3">
+            <nav class="navbar nav nav-pills nav-stacked">
+                <div class="menu-items">
+                </div>
+            </nav>
+        </div>
+        <section class="page-header col-xs-8 col-xs-offset-4 col-lg-9 col-lg-offset-3">
+            <img height="185" alt="" src="media/logo_myparcel.png">
+            <h1 class="project-name">
+                Handleiding Prestashop plugin
+            </h1>
+            <br />
+            <a target="_blank" class="btn" href="https://https://github.com/myparcelnl/prestashop/releases/download/v1.0.0/myparcelnl.zip">Download versie 1.0.0</a>
+<!--            <a target="_blank" class="btn" href=""></a>-->
+        </section>
+        <section class="main-content col-xs-8 col-xs-offset-4 col-lg-7 col-lg-offset-4">
+
+            <div style="margin-top:10px">
+                <h1 id="1">1. Installatie</h1>
+                <p>
+                   Om gebruik te maken van de module heb je een MyParcel-acccount nodig. Je kunt je registreren op <a target="blank" href="https://www.myparcel.nl" style="color: #FF8C00;">MyParcel.nl</a>.
+                </p>
+                <ol>
+                    <li>Download het .zip-bestand via <a href="https://github.com/myparcelnl/prestashop/releases/latest" target="blank">Github</a>.</li>
+                    <li>Open je Prestashop admin en ga naar <span class="nice">Modules > Module Manager</span>.</li>
+                    <li>Klik op <span class="nice">Upload</span> en upload het .zip-bestand.</li>
+                    <li>Klik op <span class="nice">Configure</span> om de plugin te configureren.</li>
+                </ol>
+                
+                <p>
+                    Je kunt de module vinden onder <span class="nice">Shipping > MyParcel</span>.
+                </p>
+                
+                <h1 id="2">2. Configuratie</h1>
+                <p>
+                    Ga in het linkermenu naar het kopje <span class="nice">Shipping > MyParcel</span> om de MyParcel module te configureren.
+                </p>
+                <h2 id="2_A">2.1 Algemeen</h2>
+                <h3>API instellingen</h3>
+                <p>
+                    Om zendingen in het juiste account terecht te laten komen, zal je de API key uit je MyParcel-account moeten invullen.
+                    Als je ingelogd bent in jouw MyParcel account, kun je deze vinden bij het
+                    <img height="25" alt="" src="media/myparcel_account_icoon.png">-teken > <span class="nice">Shopinstellingen</span> > <span class="nice">Algemeen</span>.
+                    Het kan zijn dat je de API key nog niet ziet, maar deze eerst nog moet 'genereren'.
+                    Klik dan op <span class="nice">Genereer API-key</span> en kopieer de API-key.
+                </p>
+       
+                
+                <footer class="site-footer">
+                    <p>
+                        <span class="site-footer-owner">MyParcel</span>
+                    </p>
+                    <p>
+                        <span class="site-footer-credits">
+                            <strong>Adres </strong>Antareslaan 31, 2132 JE Hoofddorp<br />
+                            <strong>Telefoon </strong>023 30 30 315&nbsp;
+                            <strong>E-mail</strong> &nbsp;info@myparcel.nl<br />
+                            <strong>Website </strong><a href="https://www.myparcel.nl">www.myparcel.nl</a>&nbsp;
+                            <strong>IBAN </strong>NL48ABNA0447850539&nbsp;
+                            <strong>KvK </strong>Amsterdam 34 09 97 58 <br />
+                            <strong>BTW-nr. </strong>NL8045.33.258.B01
+                        </span>
+                        <br />
+                        &nbsp;
+                    </p>
+                </footer>
+            </div>
+        </section>
+    </div>
+</div>
+<script>
+    // Set postman button attributes in one place
+    postman_buttons = document.getElementsByClassName('postman-run-button');
+
+    for (i = 0; i < postman_buttons.length; i++) {
+        postman_buttons[i].setAttribute('data-postman-action', 'collection/import');
+        postman_buttons[i].setAttribute('data-postman-var-1', '065786285c2e5ed75509');
+        postman_buttons[i].setAttribute('data-postman-param', 'env%5BMyParcel%20public%5D=W3siZW5hYmxlZCI6dHJ1ZSwia2V5IjoiYXBpX2tleSIsInZhbHVlIjoiIn0seyJrZXkiOiJVc2VyLUFnZW50IiwidmFsdWUiOiJ7e1VzZXItQWdlbnR9fSIsImRlc2NyaXB0aW9uIjoiIiwiZW5hYmxlZCI6dHJ1ZX0seyJrZXkiOiJhdXRoX3Rva2VuIiwidmFsdWUiOiIiLCJkZXNjcmlwdGlvbiI6IiIsImVuYWJsZWQiOnRydWV9XQ==');
+    }
+
+    (function (p,o,s,t,m,a,n) {
+        !p[s] && (p[s] = function () { (p[t] || (p[t] = [])).push(arguments); });
+        !o.getElementById(s+t) && o.getElementsByTagName("head")[0].appendChild((
+            (n = o.createElement("script")),
+                (n.id = s+t), (n.async = 1), (n.src = m), n
+        ));
+    }(window, document, "_pm", "PostmanRunObject", "https://run.pstmn.io/button.js"));
+</script>
+
+</body>
+</html>
