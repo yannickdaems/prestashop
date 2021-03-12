@@ -62,7 +62,6 @@ h1 {
 }
 
 .page-header > .postman-run-button {
-    background: none;
     display: inline-block;
     margin-bottom: 1rem;
     color: white;
@@ -72,7 +71,7 @@ h1 {
     transition: color 0.2s, background-color 0.2s, border-color 0.2s;
     width: 140px;
     height: 38px;
-    padding-top: 7.9px;
+    padding-top: 8px;
 }
 
 .page-header {
@@ -222,16 +221,32 @@ h1 {
     max-width: 100%;
 }
 
-.main-content h1, .main-content h2, .main-content h3, .main-content h4, .main-content h5, .main-content h6 {
-    margin-top: 1em;
+.main-content h1, .main-content h2 {
+    margin-top: 0.5em;
+    margin-bottom: 0.1em;
+    font-weight: normal;
+    color: #0F5C47;
+}
+
+.main-content h3 {
+    margin-top: 0.3em;
+    margin-bottom: 0.1em;
+    margin-left: 0.5em;
+    font-weight: normal;
+    color: #0F5C47;
+}
+
+.main-content h4, .main-content h5, .main-content h6 {
+    margin-top: 0.5em;
     margin-bottom: 0.1em;
     font-weight: normal;
     color: #0F5C47;
 }
 
 .main-content p {
-    margin-top: 0.1em;
-    margin-bottom: 1em;
+    margin-top: 0.3em;
+    margin-bottom: 0.5em;
+    margin-left: 1em;
     text-align: justify;
 }
 
@@ -319,7 +334,6 @@ h1 {
     display: block;
     width: 100%;
     overflow: auto;
-    word-break: normal;
     word-break: keep-all;
 }
 
