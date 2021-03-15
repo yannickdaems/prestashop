@@ -2,7 +2,6 @@
 
 namespace Gett\MyparcelNL\Module\Configuration;
 
-use Carrier;
 use Gett\MyparcelNL\Constant;
 use Gett\MyparcelNL\Module\Carrier\ExclusiveField;
 use Tools;

@@ -140,7 +140,7 @@
                     type="checkbox"
                     value="1"
                     name="position[]"
-                    {if $labelConfiguration.MYPARCELNL_LABEL_POSITION eq 1}checked="checked"{/if}
+                    {if 1 / $labelConfiguration.MYPARCELNL_LABEL_POSITION >= 1}checked="checked"{/if}
             >
             <label for="top-left">{l s='Top-left' mod='myparcelnl'}</label>
             <br>
@@ -149,7 +149,7 @@
                     type="checkbox"
                     value="2"
                     name="position[]"
-                    {if $labelConfiguration.MYPARCELNL_LABEL_POSITION eq 2}checked="checked"{/if}
+                    {if 2 / $labelConfiguration.MYPARCELNL_LABEL_POSITION >= 1}checked="checked"{/if}
             >
             <label for="top-right">{l s='Top-right' mod='myparcelnl'}</label>
             <br>
@@ -158,7 +158,7 @@
                     type="checkbox"
                     value="3"
                     name="position[]"
-                    {if $labelConfiguration.MYPARCELNL_LABEL_POSITION eq 3}checked="checked"{/if}
+                    {if 3 / $labelConfiguration.MYPARCELNL_LABEL_POSITION >= 1}checked="checked"{/if}
             >
             <label for="bottom-left">{l s='Bottom-left' mod='myparcelnl'}</label>
             <br>
@@ -167,7 +167,7 @@
                     type="checkbox"
                     value="4"
                     name="position[]"
-                    {if $labelConfiguration.MYPARCELNL_LABEL_POSITION eq 4}checked="checked"{/if}
+                    {if 4 / $labelConfiguration.MYPARCELNL_LABEL_POSITION >= 1}checked="checked"{/if}
             >
             <label for="bottom-right">{l s='Bottom-right' mod='myparcelnl'}</label>
           </div>

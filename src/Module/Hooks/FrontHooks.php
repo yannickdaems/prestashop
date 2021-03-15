@@ -6,6 +6,7 @@ use Address;
 use Configuration;
 use Currency;
 use Db;
+use Gett\MyparcelNL\Carrier\PackageTypeCalculator;
 use Product;
 use Tools;
 use Validate;
@@ -42,6 +43,10 @@ trait FrontHooks
             }
             $carrier = new \Carrier($id_carrier);
             if (Validate::isLoadedObject($carrier)) {
+                $optionsObj = json_decode($options);
+                if ($optionsObj === null) {
+                    $optionsObj = new \StdClass();
+                }
                 $optionsObj->carrier = str_replace(' ', '', strtolower($carrier->name));
                 Db::getInstance(_PS_USE_SQL_SLAVE_)->insert(
                     'myparcelnl_delivery_settings',
@@ -97,11 +102,18 @@ trait FrontHooks
                 }
             }
 
+            if (empty($this->context->cart->id_carrier)) {
+                $selectedDeliveryOption = current($this->context->cart->getDeliveryOption(null, false, false));
+                $this->context->cart->id_carrier = (int) $selectedDeliveryOption;
+            }
+
             $this->context->smarty->assign([
                 'address' => $address,
                 'delivery_settings' => $this->getDeliverySettingsByCart((int) $this->context->cart->id),
                 'shipping_cost' => $shipping_cost,
                 'carrier' => $params['carrier'],
+                'enableDeliveryOptions' => (new PackageTypeCalculator())
+                    ->allowDeliveryOptions($this->context->cart, $this->getModuleCountry()),
             ]);
 
             return $this->display($this->name, 'views/templates/hook/carrier.tpl');

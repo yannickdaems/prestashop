@@ -43,7 +43,7 @@ class AdminOrderView extends AbstractAdminOrder
     public function display(): string
     {
         $order = new Order($this->idOrder);
-        if (!Validate::isLoadedObject($order)) {
+        if (!Validate::isLoadedObject($order) || !$this->isMyParcelCarrier($order->id_carrier)) {
             return '';
         }
         $psVersion = '';
@@ -59,12 +59,12 @@ class AdminOrderView extends AbstractAdminOrder
         $deliveryAddressFormatted = \AddressFormat::generateAddress($deliveryAddress, [], '<br />');
         $bulk_actions = [
             'refreshLabels' => [
-                'text' => $this->module->l('Refresh', 'orderview'),
+                'text' => $this->module->l('Refresh', 'adminorderview'),
                 'icon' => 'icon-refresh',
                 'ajax' => 1,
             ],
             'printLabels' => [
-                'text' => $this->module->l('Print', 'orderview'),
+                'text' => $this->module->l('Print', 'adminorderview'),
                 'icon' => 'icon-print',
             ],
         ];
