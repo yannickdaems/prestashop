@@ -119,7 +119,8 @@
                   id="insurance_amount_100"
                   value="amount100"
                   {if !empty($deliveryOptions.shipmentOptions.insurance.amount)
-                  && $deliveryOptions.shipmentOptions.insurance.amount eq 10000}checked{/if}
+                  && $deliveryOptions.shipmentOptions.insurance.amount eq 10000
+                  || (empty($deliveryOptions.shipmentOptions.insurance) && !empty($labelOptions.insurance))}checked{/if}
           />
           {l s='Up to € 100' mod='myparcelnl'}
         </label>

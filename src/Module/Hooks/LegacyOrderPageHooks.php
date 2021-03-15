@@ -31,7 +31,26 @@ trait LegacyOrderPageHooks
         if (!isset($params['select'])) {
             $params['select'] = '';
         }
-        $params['select'] .= ',1 as `myparcel_void_1` ,1 as `myparcel_void_2`, a.id_carrier';
+        if (!isset($params['join'])) {
+            $params['join'] = '';
+        }
+        $prefix = 'car' . $this->id;
+
+        $params['select'] .= ', 1 as `myparcel_void_1`, 1 as `myparcel_void_2`, a.`id_carrier`';
+        $params['select'] .= ', a.`id_cart` , \'\' AS myparcel_void_0';
+        $params['select'] .= ', ' . $prefix . '.`id_reference` AS id_carrier_reference';
+        $params['select'] .= ', ' . $prefix . '.`name` AS carrier_name';
+
+        $params['join'] .= '
+            LEFT JOIN ' . _DB_PREFIX_ . 'carrier ' . $prefix . ' ON (a.id_carrier = ' . $prefix . '.id_carrier)';
+
+        $params['fields']['myparcel_void_0'] = [
+            'title' => $this->l('Delivery date', 'legacyorderpagehooks'),
+            'callback' => 'printMyParcelDeliveryInfo',
+            'search' => false,
+            'orderby' => false,
+            'callback_object' => $this,
+        ];
 
         $params['fields']['myparcel_void_1'] = [
             'title' => $this->l('Labels', 'legacyorderpagehooks'),
@@ -135,5 +154,30 @@ trait LegacyOrderPageHooks
         $adminOrderView = new AdminOrderView($this, (int) $params['id_order'], $this->context);
 
         return $adminOrderView->display();
+    }
+
+    public function printMyParcelDeliveryInfo($id, $row)
+    {
+        if (empty($row['id_carrier_reference'])) {
+            return '';
+        }
+        $adminOrderList = new AdminOrderList($this);
+        if (!$adminOrderList->isMyParcelCarrier($row['id_carrier_reference'])) {
+            return '';
+        }
+        $deliverySettings = $this->getDeliverySettingsByCart($row['id_cart']);
+        try {
+            if (empty($deliverySettings['date'])) {
+                return '';
+            }
+            $date = new \DateTime($deliverySettings['date']);
+            $dateFormatted = $date->format($this->context->language->date_format_lite);
+            if (!empty($dateFormatted)) {
+                $id = sprintf('[%s] %s', $dateFormatted, $row['carrier_name']);
+            }
+        } catch (\Exception $exception) {
+        }
+
+        return $id;
     }
 }
