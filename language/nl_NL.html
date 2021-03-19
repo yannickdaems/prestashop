@@ -16,7 +16,7 @@
                 Handleiding Prestashop plugin
             </h1>
             <br />
-            <a class="btn" href="https://https://github.com/myparcelnl/prestashop/releases/download/v1.0.0/myparcelnl.zip" target="_blank">Download versie 1.0.0</a>
+            <a class="btn" href="https://github.com/myparcelnl/prestashop/releases/latest" target="_blank">Download de laatste versie hier</a>
 <!--            <a target="_blank" class="btn" href=""></a>-->
         </section>
         <section class="main-content col-xs-8 col-xs-offset-4 col-lg-7 col-lg-offset-4">
@@ -27,13 +27,12 @@
                    Om gebruik te maken van de module heb je een MyParcel-acccount nodig. Je kunt je registreren op <a href="https://www.myparcel.nl" style="color: #FF8C00;" target="blank">MyParcel.nl</a>.
                 </p>
                 <ol>
-                    <li></li>
+                    <li><i>Verwijder de oude module (v2.3.8) als je hiervan gebruik hebt gemaakt.</i></li>
                     <li>Download het .zip-bestand via <a href="https://github.com/myparcelnl/prestashop/releases/latest" target="blank">Github</a>.</li>
                     <li>Open je Prestashop admin en ga naar <span class="nice">Modules > Module Manager</span>.</li>
                     <li>Klik op <span class="nice">Upload</span> en upload het .zip-bestand.</li>
                     <li>Klik op <span class="nice">Configure</span> om de plugin te configureren.</li>
                 </ol>
-                
                 <p>
                     Je kunt de module vinden onder <span class="nice">Verzending > MyParcel</span>.
                 </p>
@@ -43,7 +42,7 @@
                     Ga in het linkermenu naar het kopje <span class="nice">Verzending > MyParcel</span> om de MyParcel module te configureren.
                 </p>
                 <h2 id="2_A">2.1 API instellingen</h2>
-                <img src="media/prestashop_apisettings.png" alt="apisettings" width="100%"/>
+                <img src="media/prestashop_apisettings.png" alt="apisettings" >
                 <h3 id="2_A_A">2.1.1 Jouw API key</h3>
                 <p>
                     Om zendingen in het juiste account terecht te laten komen, zal je de API key uit je MyParcel-account moeten invullen.
@@ -56,7 +55,7 @@
                 <p>Zet dit aan als je problemen ervaart met de module. Support kan hiermee de communicatie tussen de API
                 </p>
                 <h2 id="2_B">2.2 Algemene instellingen</h2>
-                <img src="media/prestashop_generalsettings.png" width="95%"/>
+                <img src="media/prestashop_generalsettings.png" alt="generalsettings">
                 <h3 id="2_B_A">2.2.1 Deel mailadres klant</h3>
                 <p>
                     Deel het mailadres van je klant met MyParcel om Track en trace te kunnen versturen vanuit MyParcel.
@@ -65,9 +64,13 @@
                 <p>
                     Deel het telefoonnummer van je klant met MyParcel.
                 </p>
+                <h3 id="2_B_C">2.2.3 Gebruik tweede adresveld als huisnummer</h3>
+                <p>
+                    Deze instelling zal er voor zorgen dat adresveld 2 als huisnummer wordt genomen bij het aanmaken van een zending.
+                </p>
 
                 <h2 id="2_C">2.3 Label instellingen</h2>
-                <img src="media/prestashop_labelsettings.png" width="100%"/>
+                <img src="media/prestashop_labelsettings.png" alt="labelsettings">
                 <h3 id="2_C_A">2.3.1 Eigen kenmerk label</h3>
                 <p>
                     Geef hier aan wat je als eigen kenmerk wilt tonen op je label. Je kunt hier ook kiezen voor een ordernummer of referentie door hier een variabele in te vullen. De beschikbare variabelen zijn:
@@ -93,7 +96,7 @@
                     Met deze optie kan je verder gaan met printen waar je de laatste keer was gebleven. Hierdoor kun je alle stickers op het A4-vel gebruiken.
                 </p>
                 <h2 id="2_D">2.4 Order opties</h2>
-                <img src="media/Prestashop_ordersettings.png" width="95%"/>
+                <img src="media/prestashop_ordersettings.png" alt="Order_settings">
                 <h3 id="2_D_A">2.4.1 Automatische orderstatus</h3>
                 <p>
                     Stel in welke status je orders krijgen na exporteren, scannen bij PostNL en wanneer de zending is afgeleverd.
@@ -121,29 +124,29 @@
 
                 <h2 id="2_E">2.5 Customs instellingen</h2>
                 <p>
-                    Ga naar <span class="nice">Catalogus > Producten > -product- </span> om de gegevens die nodig zijn voor de customs declaration in te stellen. Om een zending te kunnen  zult een gewicht en een HS code moeten instellen. Ook is een land van herkomst nodig.
+                    Ga naar <span class="nice">Catalogus > Producten > <i>-product-</i> </span> om de gegevens die nodig zijn voor de customs declaration in te stellen. Om een zending te kunnen  zult een gewicht en een HS code moeten instellen. Ook is een land van herkomst nodig.
                 </p>
-                <img src="media/Prestashop_Product_Customsdec.png" alt="customsdec">
+                <img src="media/prestashop_product_customsdec.png" alt="customsdec">
                 <p>
                     Kies voor 'Verzending' om een gewicht in te stellen. Klik daarna op 'Modules' en kies voor 'MyParcel > Customs' om in te stellen welke HS code voor dit product moet worden gebruikt en geef aan wat het land van herkomst is. Wanneer hier niets is ingevuld, kun je bij de instellingen van de module <span class="nice">Modules > Module Manager > MyParcelNL > Configureren > Customs Options</span> standaard waarden instellen.
                 </p>
                 <h3 id="2_E_A">2.5.1 Default customs form</h3>
                 <p>
-                    Je kunt bij het product zelf kiezen om dit product op het customs formulier te tonen of juist over te slaan. Ga naar <span class="nice">Catalogus > Producten > -product- > Modules > MyParcel > Customs</span> om dit in te stellen per product.
+                    Je kunt bij het product zelf kiezen om dit product op het customs formulier te tonen of juist over te slaan. Ga naar <span class="nice">Catalogus > Producten > <i>-product-</i> > Modules > MyParcel > Customs</span> om dit in te stellen per product.
                 </p>
 
                 <h3 id="2_E_B">2.5.2 Default customs code</h3>
                 <p>
-                    Hier vul je een HS-code in die wordt gebruikt wanneer er geen HS-code is ingevuld bij het product. Ga naar <span class="nice">Catalogus > Producten > -product- > Modules > MyParcel > Customs</span> om dit in te stellen per product.
+                    Hier vul je een HS-code in die wordt gebruikt wanneer er geen HS-code is ingevuld bij het product. Ga naar <span class="nice">Catalogus > Producten > <i>-product-</i> > Modules > MyParcel > Customs</span> om dit in te stellen per product.
                 </p>
 
                 <h3 id="2_E_C">2.5.3 Default customs origin</h3>
                 <p>
-                    Geef hier aan welk land van herkomst er moet worden gebruikt als er geen land is ingevuld bij het product. Ga naar <span class="nice">Catalogus > Producten > -product- > Modules > MyParcel > Customs</span> om dit in te stellen per product.
+                    Geef hier aan welk land van herkomst er moet worden gebruikt als er geen land is ingevuld bij het product. Ga naar <span class="nice">Catalogus > Producten > <i>-product-</i> > Modules > MyParcel > Customs</span> om dit in te stellen per product.
                 </p>
                 <h3 id="2_E_D">2.5.4 Default customs age check</h3>
                 <p>
-                    Wanneer er standaard op leeftijd moet worden gecontroleerd, kies je hier voor 'Ja'.<br> Ga naar <span class="nice">Catalogus > Producten > -product- > Modules > MyParcel > Customs</span> om dit in te stellen per product.
+                    Wanneer er standaard op leeftijd moet worden gecontroleerd, kies je hier voor 'Ja'.<br> Ga naar <span class="nice">Catalogus > Producten > <i>-product-</i> > Modules > MyParcel > Customs</span> om dit in te stellen per product.
                 </p>
 
                 <h2 id="2_F">2.6 Vervoerders opties</h2>
@@ -181,6 +184,11 @@
                     Stel hier in welk pakkettype er standaard moet worden gebruikt voor retourzendingen.
                 </p>
 
+                <h1 id="3">3 Gebruik van de plugin</h1>
+                <p>
+                    Als de configuratie van de plugin
+                </p>
+                <h2 id="3_A">3.1 Aanmaken van labels</h2>
 
                 <footer class="site-footer">
                     <p>
