@@ -49,7 +49,7 @@
         <div class="col-lg-4">
             <div class="form-group">
                 <label for="package-type-select">{l s='Select package type' mod='myparcelnl'}</label>
-                <select class="form-control" name="{$PACKAGE_TYPE}" id = "package-type-select">
+                <select class="form-control" name="{$PACKAGE_TYPE}" id="package-type-select">
                     <option value="1"{if $params[$PACKAGE_TYPE] == 1} selected{/if}>
                         {l s='Parcel' mod='myparcelnl'}
                     </option>
@@ -95,8 +95,8 @@
                 {/if}
             </div>
             <div class="form-group">
-                <label for="package-type-select">{l s='Select package format' mod='myparcelnl'}</label>
-                <select class="form-control" name="{$PACKAGE_FORMAT}" id="package-type-select">
+                <label for="package-format-select">{l s='Select package format' mod='myparcelnl'}</label>
+                <select class="form-control" name="{$PACKAGE_FORMAT}" id="package-format-select">
                     <option value="1"{if $params[$PACKAGE_FORMAT] == 1} selected{/if}>
                         {l s='Normal' mod='myparcelnl'}
                     </option>

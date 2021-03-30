@@ -182,7 +182,7 @@
 
                 <div class="form-group">
                     <label for="packageType">{l s='Package type' mod='myparcelnl'}</label>
-                    <select name="packageType" id="package-type" class="custom-select">
+                    <select name="packageType" class="custom-select" id="packageType">
                         <option value="1">{l s='Parcel' mod='myparcelnl'}</option>
                         <option value="2">{l s='Mailbox package' mod='myparcelnl'}</option>
                         <option value="3">{l s='Letter' mod='myparcelnl'}</option>

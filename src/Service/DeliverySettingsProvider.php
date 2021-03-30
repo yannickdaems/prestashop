@@ -53,13 +53,15 @@ class DeliverySettingsProvider
             return [];
         }
         $address = new \Address($this->context->cart->id_address_delivery);
-        $address->address1 = preg_replace('/[^0-9]/', '', $address->address1);
-        $carrier = new \Carrier($this->idCarrier);
-        $carrierName = str_replace(' ', '', strtolower($carrier->name));
+        $houseNumber = preg_replace('/[^0-9]/', '', $address->address1);
+        if (\Configuration::get(Constant::USE_ADDRESS2_AS_STREET_NUMBER_CONFIGURATION_NAME)) {
+            $houseNumber = trim($address->address2);
+        }
+        $carrierName = (new CarrierName())->get((int) $this->idCarrier);
         $carrierSettings = [
-            'bpost' => ['allowDeliveryOptions' => false],
-            'dpd' => ['allowDeliveryOptions' => false],
-            'postnl' => ['allowDeliveryOptions' => false],
+            Constant::BPOST_CARRIER_NAME => ['allowDeliveryOptions' => false],
+            Constant::DPD_CARRIER_NAME => ['allowDeliveryOptions' => false],
+            Constant::POSTNL_CARRIER_NAME => ['allowDeliveryOptions' => false],
         ];
         $activeCarrierSettings = [
             'allowDeliveryOptions' => true,
@@ -192,7 +194,7 @@ class DeliverySettingsProvider
                 'cc' => strtoupper(Country::getIsoById($address->id_country)),
                 'city' => $address->city,
                 'postalCode' => $address->postcode,
-                'number' => !empty(trim($address->address2)) ? $address->address2 : $address->address1,
+                'number' => $houseNumber,
             ],
             'delivery_settings' => $this->module->getDeliverySettingsByCart((int) $this->context->cart->id),
         ];

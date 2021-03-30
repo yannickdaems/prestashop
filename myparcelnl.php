@@ -17,6 +17,7 @@ class MyParcelNL extends CarrierModule
     use \Gett\MyparcelNL\Module\Hooks\LegacyOrderPageHooks;
     use \Gett\MyparcelNL\Module\Hooks\OrderLabelHooks;
     use \Gett\MyparcelNL\Module\Hooks\CarrierHooks;
+    use \Gett\MyparcelNL\Module\Hooks\OrderHooks;
     public $baseUrl;
     public $id_carrier;
     public $migrations = [
@@ -92,6 +93,7 @@ class MyParcelNL extends CarrierModule
         'actionObjectGettMyParcelNLOrderLabelUpdateAfter',
         'displayInvoice',
         'displayAdminAfterHeader',
+        'actionValidateOrder',
     ];
     /** @var string */
     protected $baseUrlWithoutToken;
@@ -100,7 +102,7 @@ class MyParcelNL extends CarrierModule
     {
         $this->name = 'myparcelnl';
         $this->tab = 'shipping_logistics';
-        $this->version = '1.0.1';
+        $this->version = '1.0.2';
         $this->author = 'Gett';
         $this->need_instance = 1;
         $this->bootstrap = true;

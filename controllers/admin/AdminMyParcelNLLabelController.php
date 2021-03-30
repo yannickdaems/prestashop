@@ -11,6 +11,7 @@ use Gett\MyparcelNL\OrderLabel;
 use Gett\MyparcelNL\Provider\OrderLabelProvider;
 use Gett\MyparcelNL\Service\Consignment\Download;
 use Gett\MyparcelNL\Service\DeliverySettingsProvider;
+use Gett\MyparcelNL\Service\ErrorMessage;
 use Gett\MyparcelNL\Service\MyparcelStatusProvider;
 use Gett\MyparcelNL\Service\Order\OrderTotalWeight;
 use MyParcelNL\Sdk\src\Exception\InvalidConsignmentException;
@@ -66,6 +67,7 @@ class AdminMyParcelNLLabelController extends ModuleAdminController
                 ;
 
                 $myParcelCollection = (new MyParcelCollection())
+                    ->setUserAgents(['prestashop' => _PS_VERSION_])
                     ->addConsignment($consignment)
                     ->setPdfOfLabels()->sendReturnLabelMails();
                 Logger::addLog($myParcelCollection->toJson());
@@ -563,10 +565,14 @@ class AdminMyParcelNLLabelController extends ModuleAdminController
             Logger::addLog($e->getFile(), true, true);
             Logger::addLog($e->getLine(), true, true);
             header('HTTP/1.1 500 Internal Server Error', true, 500);
-            $this->errors[] = $this->module->l(
-                'An error occurred in MyParcel module, please try again.',
-                'adminlabelcontroller'
-            );
+            $parsedErrorMessage = (new ErrorMessage($this->module))->get($e->getMessage());
+            if (empty($parsedErrorMessage)) {
+                $parsedErrorMessage = $this->module->l(
+                    'An error occurred in MyParcel module, please try again.',
+                    'adminlabelcontroller'
+                );
+            }
+            $this->errors[] = $parsedErrorMessage;
             $this->returnAjaxResponse();
         }
         if ($collection === null) {
@@ -843,6 +849,7 @@ class AdminMyParcelNLLabelController extends ModuleAdminController
             }
 
             $myParcelCollection = (new MyParcelCollection())
+                ->setUserAgents(['prestashop' => _PS_VERSION_])
                 ->addConsignment($consignment)
                 ->setPdfOfLabels()
                 ->sendReturnLabelMails();
